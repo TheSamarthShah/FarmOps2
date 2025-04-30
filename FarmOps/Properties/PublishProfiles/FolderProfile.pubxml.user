@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>D:\projects\FarmOps2\FarmOps\bin\Release\net8.0\publish\</_PublishTargetUrl>
+    <History>True|2025-04-30T20:40:37.5251987Z||;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Server=tcp:kiwihort2024.database.windows.net,1433%3bDatabase=kiwinew%3bUser Id=rajan%3bPassword=Jaymaharaj%401315%3bTrusted_Connection=False%3bMultipleActiveResultSets=true%3bEncrypt=false</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

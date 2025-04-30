@@ -1,6 +1,73 @@
 ﻿
 <link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
-<div class="section login_signup_forms">
+	<div class="container right-panel-active" id="container">
+		<div class="form-container sign-up-container">
+			<form class="form" action="#">
+				<h1 class="h1">Create Account</h1>
+				<div class="social-container">
+					<a href="#" class="social a"><i class="fab fa-facebook-f"></i></a>
+					<a href="#" class="social a"><i class="fab fa-google-plus-g"></i></a>
+					<a href="#" class="social a"><i class="fab fa-linkedin-in"></i></a>
+				</div>
+				<span class="span">or use your email for registration</span>
+
+			<button class="button" disabled style="cursor:not-allowed">Sign Up</button>
+			</form>
+		</div>
+		<div class="form-container sign-in-container">
+		<form class="form" method="post">
+				<h1 class="h1">Sign in</h1>
+				<div class="social-container">
+					<a href="#" class="social a"><i class="fab fa-facebook-f"></i></a>
+					<a href="#" class="social a"><i class="fab fa-google-plus-g"></i></a>
+					<a href="#" class="social a"><i class="fab fa-linkedin-in"></i></a>
+				</div>
+			<span class="span">or use your account</span>
+
+			<select id="UserType" name="AccountType" class="form-style input" required>
+					<option value="M">Monitor</option>
+					<option value="S" selected>Supervisor</option>
+					<option value="W">Worker</option>
+					<option value="C">Grower</option>
+				</select>
+				<input type="email" name="Email" class="form-style input" placeholder="Your Email" id="logemail" autocomplete="off" required value="johndoe@example.com">
+
+			<input type="password" name="Password" class="form-style input" placeholder="Your Password" id="logpass" autocomplete="off" required value="password123">
+				<a class="a" href="#">Forgot your password?</a>
+				<button class="button" type="submit">Sign In</button>
+			</form>
+		</div>
+		<div class="overlay-container">
+			<div class="overlay">
+				<div class="overlay-panel overlay-left">
+					<h1 class="h1">Welcome Back!</h1>
+					<p class="p">To keep connected with us please login with your personal info</p>
+					<button class="button ghost" id="signIn">Sign In</button>
+				</div>
+				<div class="overlay-panel overlay-right">
+					<h1 class="h1">Hello, Friend!</h1>
+					<p class="p">Enter your personal details and start journey with us</p>
+					<button class="button ghost" id="signUp">Sign Up</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+	const signUpButton = document.getElementById('signUp');
+	const signInButton = document.getElementById('signIn');
+	const container = document.getElementById('container');
+
+	signUpButton.addEventListener('click', () => {
+		container.classList.add("right-panel-active");
+	});
+
+	signInButton.addEventListener('click', () => {
+		container.classList.remove("right-panel-active");
+	});
+</script>
+
+<!--<div class="section login_signup_forms">
 	<div class="container">
 		<div class="row full-height justify-content-center">
 			<div class="col-12 text-center align-self-center py-2">
@@ -42,17 +109,19 @@
 								<div class="center-wrap">
 									<div class="section text-center">
 										<h4 class="mb-4 pb-3">Sign Up</h4>
-										<div class="form-group">
-											<input type="text" name="logname" class="form-style" placeholder="Your Full Name" id="logname" autocomplete="off">
-											<i class="input-icon fas fa-user"></i>
-										</div>
-										<div class="form-group mt-2">
-											<input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off">
-											<i class="input-icon fas fa-at"></i>
-										</div>
-										<div class="form-group mt-2">
-											<input type="password" name="logpass" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off">
-											<i class="input-icon fas fa-lock"></i>
+										<div class="row">
+											<div class="form-group col-4">
+												<input type="text" name="logname" class="form-style" placeholder="Your Full Name" id="logname" autocomplete="off">
+												<i class="input-icon fas fa-user"></i>
+											</div>
+											<div class="form-group col-4 mt-2">
+												<input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off">
+												<i class="input-icon fas fa-at"></i>
+											</div>
+											<div class="form-group mt-2">
+												<input type="password" name="logpass" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off">
+												<i class="input-icon fas fa-lock"></i>
+											</div>
 										</div>
 										<a href="#" class="btn mt-4">submit</a>
 									</div>
@@ -65,3 +134,4 @@
 		</div>
 	</div>
 </div>
+-->

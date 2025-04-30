@@ -89,7 +89,6 @@ D:\projects\FarmOps2\FarmOps\obj\Debug\net8.0\staticwebassets\msbuild.build.Farm
 D:\projects\FarmOps2\FarmOps\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.FarmOps.props
 D:\projects\FarmOps2\FarmOps\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.FarmOps.props
 D:\projects\FarmOps2\FarmOps\obj\Debug\net8.0\staticwebassets.pack.json
-D:\projects\FarmOps2\FarmOps\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 D:\projects\FarmOps2\FarmOps\obj\Debug\net8.0\FarmOps.csproj.Up2Date
 D:\projects\FarmOps2\FarmOps\obj\Debug\net8.0\FarmOps.dll
 D:\projects\FarmOps2\FarmOps\obj\Debug\net8.0\refint\FarmOps.dll
@@ -97,3 +96,4 @@ D:\projects\FarmOps2\FarmOps\obj\Debug\net8.0\FarmOps.pdb
 D:\projects\FarmOps2\FarmOps\obj\Debug\net8.0\FarmOps.genruntimeconfig.cache
 D:\projects\FarmOps2\FarmOps\obj\Debug\net8.0\ref\FarmOps.dll
 D:\projects\FarmOps2\FarmOps\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\projects\FarmOps2\FarmOps\obj\Debug\net8.0\FarmOps.sourcelink.json

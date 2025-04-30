@@ -1,5 +1,6 @@
 using FarmOps.Models;
 using FarmOps.Repos;
+using FarmOps.Repository.Job;
 using FarmOps.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -16,6 +17,8 @@ builder.Services.AddScoped<LoginService>();
 builder.Services.AddScoped<LoginRepository>();
 builder.Services.AddScoped<AttendanceService>();
 builder.Services.AddScoped<AttendanceRepository>();
+builder.Services.AddScoped<JobService>();
+builder.Services.AddScoped<JobRepository>();
 
 // Add JWT Authentication
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

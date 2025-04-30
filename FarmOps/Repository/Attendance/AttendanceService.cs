@@ -9,10 +9,11 @@ namespace FarmOps.Services
     {
         private readonly AttendanceRepository _attendanceRepository = attendanceRepository;
         private readonly string _attendanceSignsDirectory = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "AppData", "AttendanceSigns");
-
-        public string SaveTimeAttendance(List<TimeAttendanceInsert> data)
+        public async Task<bool> SaveTimeAttendanceAsync(AttendanceView.TimeBasedSave timeBasedAttendances)
         {
-            List<FAttendanceTbl> AttendanceTbl = data.Select(item =>{
+            // Save photo for InsertList and UpdateList
+            var insertList = timeBasedAttendances.InsertList.Select(item =>
+            {
                 string attendanceSignPicPath = SaveAttendanceSignPic(item);
                 return new FAttendanceTbl
                 {
@@ -24,26 +25,169 @@ namespace FarmOps.Services
                     BreakTime = item.BreakTime,
                     BlockId = item.BlockId,
                     Pay = item.Pay,
-                    AttendanceType = "Time", // Assuming you want to leave this null as it's not part of TimeAttendanceInsert model
-                    JobId = null, // Assuming no mapping for JobId, if needed, you can adjust this
-                    PaidBreak = null, // Assuming no mapping for PaidBreak, if needed, you can adjust this
+                    AttendanceType = "Time", // Indicating time-based attendance
+                    JobId = null, // No mapping for JobId
+                    PaidBreak = null, // Assuming no PaidBreak mapping
                     AttendanceSignPic = attendanceSignPicPath,
                     LineId = item.LineId,
                     JobPaid = item.JobPaid,
                     Remarks = item.Remarks,
                     AppliedBy = item.AppliedBy,
-                    ApprovedStatus = item.ApprovedStatus, // Default to 0 if null
+                    ApprovedStatus = item.ApprovedStatus ?? "0", // Default to "0" if null
                     ApprovedBy = item.ApprovedBy,
                     ApprovedDt = item.ApprovedDt
                 };
             }).ToList();
 
-            _attendanceRepository.SaveAppliedAttendance(AttendanceTbl);
+            var updateList = timeBasedAttendances.UpdateList.Select(item =>
+            {
+                string attendanceSignPicPath = SaveAttendanceSignPic(item);
+                return new FAttendanceTbl
+                {
+                    RosterId = item.RosterId,
+                    AttendanceDate = item.AttendanceDate,
+                    StartTime = item.StartTime,
+                    EndTime = item.EndTime,
+                    TotalHours = item.TotalHours,
+                    BreakTime = item.BreakTime,
+                    BlockId = item.BlockId,
+                    Pay = item.Pay,
+                    AttendanceType = "Time", // Indicating time-based attendance
+                    JobId = null, // No mapping for JobId
+                    PaidBreak = null, // Assuming no PaidBreak mapping
+                    AttendanceSignPic = attendanceSignPicPath,
+                    LineId = item.LineId,
+                    JobPaid = item.JobPaid,
+                    Remarks = item.Remarks,
+                    AppliedBy = item.AppliedBy,
+                    ApprovedStatus = item.ApprovedStatus ?? "0", // Default to "0" if null
+                    ApprovedBy = item.ApprovedBy,
+                    ApprovedDt = item.ApprovedDt
+                };
+            }).ToList();
 
-            return "success";
+            var deleteList = timeBasedAttendances.DeleteList.Select(item =>
+            {
+                string attendanceSignPicPath = SaveAttendanceSignPic(item); // Optionally save photo for delete if needed
+                return new FAttendanceTbl
+                {
+                    RosterId = item.RosterId,
+                    AttendanceDate = item.AttendanceDate,
+                    StartTime = item.StartTime,
+                    EndTime = item.EndTime,
+                    TotalHours = item.TotalHours,
+                    BreakTime = item.BreakTime,
+                    BlockId = item.BlockId,
+                    Pay = item.Pay,
+                    AttendanceType = "Time", // Indicating time-based attendance
+                    JobId = null, // No mapping for JobId
+                    PaidBreak = null, // Assuming no PaidBreak mapping
+                    AttendanceSignPic = attendanceSignPicPath, // Save the picture if needed for delete
+                    LineId = item.LineId,
+                    JobPaid = item.JobPaid,
+                    Remarks = item.Remarks,
+                    AppliedBy = item.AppliedBy,
+                    ApprovedStatus = item.ApprovedStatus ?? "0", // Default to "0" if null
+                    ApprovedBy = item.ApprovedBy,
+                    ApprovedDt = item.ApprovedDt
+                };
+            }).ToList();
+
+            // Pass all three lists to the repository (Insert, Update, and Delete)
+            await _attendanceRepository.SaveAppliedAttendanceAsync(insertList, updateList, deleteList);
+            return true;
         }
-        // Method to save base64 string as a PNG file
-        private string SaveAttendanceSignPic(TimeAttendanceInsert item)
+
+        public async Task<bool> SaveJobAttendanceAsync(AttendanceView.JobBasedSave jobBasedAttendances)
+        {
+            // Save photo for InsertList and UpdateList
+            var insertList = jobBasedAttendances.InsertList.Select(item =>
+            {
+                string attendanceSignPicPath = SaveAttendanceSignPicForJob(item);
+                return new FAttendanceTbl
+                {
+                    RosterId = item.RosterId,
+                    AttendanceDate = item.AttendanceDate,
+                    StartTime = item.StartTime,
+                    EndTime = item.EndTime,
+                    TotalHours = item.TotalHours,
+                    BreakTime = item.BreakTime,
+                    BlockId = item.BlockId,
+                    Pay = item.Pay,
+                    AttendanceType = "Job", // Indicating job-based attendance
+                    JobId = item.JobId,
+                    PaidBreak = null, // Assuming no PaidBreak mapping
+                    AttendanceSignPic = attendanceSignPicPath,
+                    LineId = item.LineId,
+                    JobPaid = item.JobPaid,
+                    Remarks = item.Remarks,
+                    AppliedBy = item.AppliedBy,
+                    ApprovedStatus = item.ApprovedStatus ?? "0", // Default to "0" if null
+                    ApprovedBy = item.ApprovedBy,
+                    ApprovedDt = item.ApprovedDt
+                };
+            }).ToList();
+
+            var updateList = jobBasedAttendances.UpdateList.Select(item =>
+            {
+                string attendanceSignPicPath = SaveAttendanceSignPicForJob(item);
+                return new FAttendanceTbl
+                {
+                    RosterId = item.RosterId,
+                    AttendanceDate = item.AttendanceDate,
+                    StartTime = item.StartTime,
+                    EndTime = item.EndTime,
+                    TotalHours = item.TotalHours,
+                    BreakTime = item.BreakTime,
+                    BlockId = item.BlockId,
+                    Pay = item.Pay,
+                    AttendanceType = "Job", // Indicating job-based attendance
+                    JobId = item.JobId,
+                    PaidBreak = null, // Assuming no PaidBreak mapping
+                    AttendanceSignPic = attendanceSignPicPath,
+                    LineId = item.LineId,
+                    JobPaid = item.JobPaid,
+                    Remarks = item.Remarks,
+                    AppliedBy = item.AppliedBy,
+                    ApprovedStatus = item.ApprovedStatus ?? "0", // Default to "0" if null
+                    ApprovedBy = item.ApprovedBy,
+                    ApprovedDt = item.ApprovedDt
+                };
+            }).ToList();
+
+            var deleteList = jobBasedAttendances.DeleteList.Select(item =>
+            {
+                string attendanceSignPicPath = SaveAttendanceSignPicForJob(item); // Optionally save photo for delete if needed
+                return new FAttendanceTbl
+                {
+                    RosterId = item.RosterId,
+                    AttendanceDate = item.AttendanceDate,
+                    StartTime = item.StartTime,
+                    EndTime = item.EndTime,
+                    TotalHours = item.TotalHours,
+                    BreakTime = item.BreakTime,
+                    BlockId = item.BlockId,
+                    Pay = item.Pay,
+                    AttendanceType = "Job", // Indicating job-based attendance
+                    JobId = item.JobId, // Preserving JobId for delete
+                    AttendanceSignPic = attendanceSignPicPath, // Save the picture if needed for delete
+                    LineId = item.LineId,
+                    JobPaid = item.JobPaid,
+                    Remarks = item.Remarks,
+                    AppliedBy = item.AppliedBy,
+                    ApprovedStatus = item.ApprovedStatus ?? "0", // Default to "0" if null
+                    ApprovedBy = item.ApprovedBy,
+                    ApprovedDt = item.ApprovedDt
+                };
+            }).ToList();
+
+            // Pass all three lists to the repository (Insert, Update, and Delete)
+            await _attendanceRepository.SaveAppliedAttendanceAsync(insertList, updateList, deleteList);
+            return true;
+        }
+
+
+        private string SaveAttendanceSignPic(AttendanceView.TimeBasedAttendance item)
         {
             if (string.IsNullOrEmpty(item.AttendanceSignPic))
             {
@@ -52,29 +196,40 @@ namespace FarmOps.Services
 
             try
             {
-                // Create the AttendanceSigns directory if it doesn't exist
-                if (!Directory.Exists(_attendanceSignsDirectory))
-                {
-                    Directory.CreateDirectory(_attendanceSignsDirectory);
-                }
-
-                // Decode the base64 string to byte array
+                // Save base64 string to file and return the file name
                 byte[] imageBytes = Convert.FromBase64String(item.AttendanceSignPic);
-
-                // Generate the file name based on RosterId, AttendanceDate, StartTime, and EndTime
-                string fileName = $"{item.RosterId}_{item.AttendanceDate:yyyyMMdd}_{item.StartTime:hhmm}_{item.EndTime:hhmm}.png";
+                string fileName = $"{item.RosterId}_{item.AttendanceDate:yyyyMMdd}.png";
                 string filePath = Path.Combine(_attendanceSignsDirectory, fileName);
-
-                // Save the byte array as a PNG file
                 File.WriteAllBytes(filePath, imageBytes);
 
-                return fileName; // Return the saved file path
+                return fileName;
             }
-            catch (Exception ex)
+            catch
             {
-                // Log the exception (optional)
-                Console.WriteLine($"Error saving AttendanceSignPic: {ex.Message}");
-                return null; // Return null if an error occurs
+                return null; // Return null in case of an error
+            }
+        }
+
+        private string SaveAttendanceSignPicForJob(AttendanceView.JobBasedAttendance item)
+        {
+            if (string.IsNullOrEmpty(item.AttendanceSignPic))
+            {
+                return null; // No picture to save
+            }
+
+            try
+            {
+                // Save base64 string to file and return the file name
+                byte[] imageBytes = Convert.FromBase64String(item.AttendanceSignPic);
+                string fileName = $"{item.RosterId}_{item.AttendanceDate:yyyyMMdd}.png";
+                string filePath = Path.Combine(_attendanceSignsDirectory, fileName);
+                File.WriteAllBytes(filePath, imageBytes);
+
+                return fileName;
+            }
+            catch
+            {
+                return null; // Return null in case of an error
             }
         }
         public List<string> GetRelatedWorkers(string UserType, string UserId)
@@ -134,6 +289,11 @@ namespace FarmOps.Services
                 records.Add(record);
             }
             return records;
+        }
+
+        public async Task<AttendanceView.AttendanceDataDto> GetAttendanceDataAsync(string userId)
+        {
+            return await _attendanceRepository.GetAttendanceDataAsync(userId);
         }
     }
 }

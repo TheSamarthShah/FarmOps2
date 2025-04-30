@@ -1,0 +1,17 @@
+﻿@model List<FarmOps.Models.AttendanceModels.ModelAttendanceViewRecord>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script>
+    const currentUserId = '@Context.Session.GetString("FarmOpsUserId")';
+    const currentUserType = '@Context.Session.GetString("FarmOpsUserType")';
+</script>
+<h2>Time Based Attendance</h2>
+<input type="hidden" id="attendanceMode" value="TimeBased" />
+
+
+<div id="grid" class="m-2" style="min-height: 50vh;">
+    <!-- Time-based attendance grid -->
+</div>
+
+<a asp-action="JobBased" class="btn btn-primary mt-3">Switch to Job Based Attendance</a>
+
+<script src="~/js/Attendance.js"></script>

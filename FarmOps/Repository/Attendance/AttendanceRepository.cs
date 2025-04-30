@@ -1,8 +1,8 @@
-﻿using FarmOps.Common;
+﻿using Dapper;
+using FarmOps.Common;
 using FarmOps.Models;
 using FarmOps.Models.AttendanceModels;
 using Microsoft.Data.SqlClient;
-using Microsoft.Extensions.Configuration;
 using System.Data;
 
 namespace FarmOps.Repos;
@@ -37,67 +37,83 @@ public class AttendanceRepository
         }
     }
 
-    public string SaveAppliedAttendance(List<FAttendanceTbl> data)
+    public async Task SaveAppliedAttendanceAsync(
+        List<FAttendanceTbl> insertList,
+        List<FAttendanceTbl> updateList,
+        List<FAttendanceTbl> deleteList)
     {
-        const string insertQuery = @"
-INSERT INTO tbl_FAttendance (
-    RosterId, AttendanceDate, StartTime, EndTime, TotalHours, BreakTime,
-    BlockId, Pay, AttendanceType, JobId, PaidBreak, AttendanceSignPic,
-    LineId, JobPaid, Remarks, AppliedBy, ApprovedStatus, ApprovedBy, ApprovedDt
-) VALUES (
-    @RosterId, @AttendanceDate, @StartTime, @EndTime, @TotalHours, @BreakTime,
-    @BlockId, @Pay, @AttendanceType, @JobId, @PaidBreak, @AttendanceSignPic,
-    @LineId, @JobPaid, @Remarks, @AppliedBy, @ApprovedStatus, @ApprovedBy, @ApprovedDt
-);";
-
-        try
+        using (IDbConnection connection = new SqlConnection(_connectionString))
         {
-            using var connection = new SqlConnection(_connectionString);
             connection.Open();
-
-            using var transaction = connection.BeginTransaction();
-
-            foreach (var record in data)
+            using (var transaction = connection.BeginTransaction())
             {
-                using var command = new SqlCommand(insertQuery, connection, transaction);
-                command.Parameters.AddWithValue("@RosterId", record.RosterId);
-                command.Parameters.AddWithValue("@AttendanceDate", record.AttendanceDate);
-                command.Parameters.AddWithValue("@StartTime", record.StartTime);
-                command.Parameters.AddWithValue("@EndTime", record.EndTime);
-                command.Parameters.AddWithValue("@TotalHours", record.TotalHours ?? (object)DBNull.Value);
-                command.Parameters.AddWithValue("@BreakTime", record.BreakTime ?? (object)DBNull.Value);
-                command.Parameters.AddWithValue("@BlockId", record.BlockId ?? (object)DBNull.Value);
-                command.Parameters.AddWithValue("@Pay", record.Pay ?? (object)DBNull.Value);
-                command.Parameters.AddWithValue("@AttendanceType", string.IsNullOrWhiteSpace(record.AttendanceType) ? DBNull.Value : record.AttendanceType);
-                command.Parameters.AddWithValue("@JobId", record.JobId ?? (object)DBNull.Value);
-                command.Parameters.AddWithValue("@PaidBreak", record.PaidBreak ?? (object)DBNull.Value);
-                command.Parameters.AddWithValue("@AttendanceSignPic", string.IsNullOrWhiteSpace(record.AttendanceSignPic) ? DBNull.Value : record.AttendanceSignPic);
-                command.Parameters.AddWithValue("@LineId", record.LineId ?? (object)DBNull.Value);
-                command.Parameters.AddWithValue("@JobPaid", record.JobPaid);
-                command.Parameters.AddWithValue("@Remarks", string.IsNullOrWhiteSpace(record.Remarks) ? DBNull.Value : record.Remarks);
-                command.Parameters.AddWithValue("@AppliedBy", string.IsNullOrWhiteSpace(record.AppliedBy) ? DBNull.Value : record.AppliedBy);
-                command.Parameters.AddWithValue("@ApprovedStatus", record.ApprovedStatus);
-                command.Parameters.AddWithValue("@ApprovedBy", string.IsNullOrWhiteSpace(record.ApprovedBy) ? DBNull.Value : record.ApprovedBy);
-                command.Parameters.AddWithValue("@ApprovedDt", record.ApprovedDt ?? (object)DBNull.Value);
+                try
+                {
+                    // 1. INSERT
+                    if (insertList?.Count > 0)
+                    {
+                        string insertQuery = @"
+                        INSERT INTO tbl_FAttendance
+                        (rosterId, attendanceDate, startTime, endTime, totalHours, breakTime, blockId, pay, 
+                         attendanceType, jobId, paidBreak, attendanceSignPic, lineId, jobPaid, remarks, 
+                         appliedBy, approvedStatus, approvedBy, approvedDt)
+                        VALUES
+                        (@RosterId, @AttendanceDate, @StartTime, @EndTime, @TotalHours, @BreakTime, @BlockId, @Pay,
+                         @AttendanceType, @JobId, @PaidBreak, @AttendanceSignPic, @LineId, @JobPaid, @Remarks,
+                         @AppliedBy, @ApprovedStatus, @ApprovedBy, @ApprovedDt)";
+                        await connection.ExecuteAsync(insertQuery, insertList, transaction);
+                    }
 
-                command.ExecuteNonQuery();
+                    // 2. UPDATE
+                    if (updateList?.Count > 0)
+                    {
+                        string updateQuery = @"
+                        UPDATE tbl_FAttendance
+                        SET totalHours = @TotalHours,
+                            breakTime = @BreakTime,
+                            blockId = @BlockId,
+                            pay = @Pay,
+                            attendanceType = @AttendanceType,
+                            jobId = @JobId,
+                            paidBreak = @PaidBreak,
+                            attendanceSignPic = @AttendanceSignPic,
+                            lineId = @LineId,
+                            jobPaid = @JobPaid,
+                            remarks = @Remarks,
+                            appliedBy = @AppliedBy,
+                            approvedStatus = @ApprovedStatus,
+                            approvedBy = @ApprovedBy,
+                            approvedDt = @ApprovedDt
+                        WHERE rosterId = @RosterId 
+                          AND attendanceDate = @AttendanceDate 
+                          AND startTime = @StartTime 
+                          AND endTime = @EndTime";
+                        await connection.ExecuteAsync(updateQuery, updateList, transaction);
+                    }
+
+                    // 3. DELETE
+                    if (deleteList?.Count > 0)
+                    {
+                        string deleteQuery = @"
+                        DELETE FROM tbl_FAttendance
+                        WHERE rosterId = @RosterId 
+                          AND attendanceDate = @AttendanceDate 
+                          AND startTime = @StartTime 
+                          AND endTime = @EndTime";
+                        await connection.ExecuteAsync(deleteQuery, deleteList, transaction);
+                    }
+
+                    transaction.Commit();
+                }
+                catch
+                {
+                    transaction.Rollback();
+                    throw;
+                }
             }
-
-            transaction.Commit();
-            return "Attendance data saved successfully.";
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Error during insert: {ex.Message}");
-            throw new ApplicationException($"An error occurred while inserting attendance data: {ex.Message}");
         }
     }
 
-    public string SaveAttendanceDetails(AttendanceDetailTblModel data)
-    {
-        // Placeholder for saving attendance detail logic
-        return "success";
-    }
 
     public DataTable GetAssignedWorkers(string clmName, string userId)
     {
@@ -123,6 +139,96 @@ INSERT INTO tbl_FAttendance (
             throw new ApplicationException("Error fetching assigned workers: " + ex.Message);
         }
     }
+
+    public async Task<AttendanceView.AttendanceDataDto> GetAttendanceDataAsync(string userId)
+    {
+        try
+        {
+            using var connection = new SqlConnection(_connectionString);
+            await connection.OpenAsync();
+
+            string timeSql = @"
+SELECT 
+    A.rosterId, 
+    A.attendanceDate, 
+    A.startTime AS StartTime, -- Return as raw TIME type
+    A.endTime AS EndTime,     -- Return as raw TIME type
+    A.totalHours, 
+    A.breakTime, 
+    A.pay,
+    A.attendanceSignPic, 
+    A.blockId, 
+    A.lineId, 
+    CASE WHEN A.jobPaid = 'Y' THEN 1 ELSE 0 END AS JobPaid,
+    A.remarks, 
+    A.appliedBy, 
+    A.approvedStatus, 
+    A.approvedBy, 
+    A.approvedDt
+FROM tbl_FAttendance A
+INNER JOIN tbl_FRoster R ON A.rosterId = R.RosterID
+WHERE A.attendanceType = 'Time' 
+  AND (
+        R.WorkerID = @UserId OR
+        R.SupervisorId = @UserId OR
+        R.GrowerID = @UserId OR
+        R.MonitorID = @UserId
+      );
+";
+
+
+            string jobSql = @"
+SELECT 
+    A.rosterId,
+    A.attendanceDate,
+    A.startTime,
+    A.endTime,
+    A.totalHours,
+    A.breakTime,
+    A.blockId,
+    A.pay,
+    A.attendanceType,
+    A.jobId,
+    J.jobName,
+    A.attendanceSignPic,
+    A.lineId,
+    CASE WHEN A.jobPaid = 'Y' THEN 1 ELSE 0 END AS JobPaid,
+    A.remarks,
+    A.appliedBy,
+    A.approvedStatus,
+    A.approvedBy,
+    A.approvedDt
+FROM tbl_FAttendance A
+INNER JOIN tbl_FRoster R ON A.rosterId = R.RosterID
+LEFT JOIN tbl_FJobDetails J ON A.jobId = J.jobId
+WHERE A.attendanceType = 'Job'
+  AND (
+        R.WorkerID = @UserId OR
+        R.SupervisorId = @UserId OR
+        R.GrowerID = @UserId OR
+        R.MonitorID = @UserId
+      );
+";
+
+            var timeBased = await connection.QueryAsync<AttendanceView.TimeBasedAttendance>(timeSql, new { UserId = userId });
+            var jobBased = await connection.QueryAsync<AttendanceView.JobBasedAttendance>(jobSql, new { UserId = userId });
+
+            return new AttendanceView.AttendanceDataDto
+            {
+                TimeBased = timeBased.ToList(),
+                JobBased = jobBased.ToList()
+            };
+        }
+        catch (SqlException ex)
+        {
+            throw new ApplicationException("Database query failed", ex);
+        }
+        catch (Exception ex)
+        {
+            throw new ApplicationException("Unexpected error in repository", ex);
+        }
+    }
+
 
     public DataTable GetAllAttendanceData(string clmName, string userId)
     {
