@@ -3,8 +3,44 @@
   "WorkspaceRootPath": "D:\\projects\\FarmOps2\\FarmOps\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{40533E46-B9A7-4AFE-9DD3-BA4890541359}|FarmOps.csproj|d:\\projects\\farmops2\\farmops\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{40533E46-B9A7-4AFE-9DD3-BA4890541359}|FarmOps.csproj|solutionrelative:wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{40533E46-B9A7-4AFE-9DD3-BA4890541359}|FarmOps.csproj|d:\\projects\\farmops2\\farmops\\views\\job\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{40533E46-B9A7-4AFE-9DD3-BA4890541359}|FarmOps.csproj|solutionrelative:views\\job\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40533E46-B9A7-4AFE-9DD3-BA4890541359}|FarmOps.csproj|d:\\projects\\farmops2\\farmops\\wwwroot\\css\\login.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{40533E46-B9A7-4AFE-9DD3-BA4890541359}|FarmOps.csproj|solutionrelative:wwwroot\\css\\login.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40533E46-B9A7-4AFE-9DD3-BA4890541359}|FarmOps.csproj|d:\\projects\\farmops2\\farmops\\views\\attendance\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{40533E46-B9A7-4AFE-9DD3-BA4890541359}|FarmOps.csproj|solutionrelative:views\\attendance\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40533E46-B9A7-4AFE-9DD3-BA4890541359}|FarmOps.csproj|d:\\projects\\farmops2\\farmops\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{40533E46-B9A7-4AFE-9DD3-BA4890541359}|FarmOps.csproj|solutionrelative:views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40533E46-B9A7-4AFE-9DD3-BA4890541359}|FarmOps.csproj|d:\\projects\\farmops2\\farmops\\repository\\login\\loginservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40533E46-B9A7-4AFE-9DD3-BA4890541359}|FarmOps.csproj|solutionrelative:repository\\login\\loginservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40533E46-B9A7-4AFE-9DD3-BA4890541359}|FarmOps.csproj|d:\\projects\\farmops2\\farmops\\models\\application\\signup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40533E46-B9A7-4AFE-9DD3-BA4890541359}|FarmOps.csproj|solutionrelative:models\\application\\signup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40533E46-B9A7-4AFE-9DD3-BA4890541359}|FarmOps.csproj|d:\\projects\\farmops2\\farmops\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40533E46-B9A7-4AFE-9DD3-BA4890541359}|FarmOps.csproj|solutionrelative:controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40533E46-B9A7-4AFE-9DD3-BA4890541359}|FarmOps.csproj|d:\\projects\\farmops2\\farmops\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{40533E46-B9A7-4AFE-9DD3-BA4890541359}|FarmOps.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40533E46-B9A7-4AFE-9DD3-BA4890541359}|FarmOps.csproj|d:\\projects\\farmops2\\farmops\\repository\\login\\loginrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40533E46-B9A7-4AFE-9DD3-BA4890541359}|FarmOps.csproj|solutionrelative:repository\\login\\loginrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,12 +59,125 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "site.css",
+              "DocumentMoniker": "D:\\projects\\FarmOps2\\FarmOps\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\site.css",
+              "ToolTip": "D:\\projects\\FarmOps2\\FarmOps\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "wwwroot\\css\\site.css",
+              "ViewState": "AgIAAAABAAAAAAAAAAAuwCQBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-05-05T03:52:42.787Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\projects\\FarmOps2\\FarmOps\\Views\\Attendance\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Attendance\\Index.cshtml",
+              "ToolTip": "D:\\projects\\FarmOps2\\FarmOps\\Views\\Attendance\\Index.cshtml",
+              "RelativeToolTip": "Views\\Attendance\\Index.cshtml",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAAAUAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-05T03:23:42.448Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Signup.cs",
+              "DocumentMoniker": "D:\\projects\\FarmOps2\\FarmOps\\Models\\Application\\Signup.cs",
+              "RelativeDocumentMoniker": "Models\\Application\\Signup.cs",
+              "ToolTip": "D:\\projects\\FarmOps2\\FarmOps\\Models\\Application\\Signup.cs",
+              "RelativeToolTip": "Models\\Application\\Signup.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAkwA8AAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T06:09:55.411Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "LoginRepository.cs",
+              "DocumentMoniker": "D:\\projects\\FarmOps2\\FarmOps\\Repository\\Login\\LoginRepository.cs",
+              "RelativeDocumentMoniker": "Repository\\Login\\LoginRepository.cs",
+              "ToolTip": "D:\\projects\\FarmOps2\\FarmOps\\Repository\\Login\\LoginRepository.cs",
+              "RelativeToolTip": "Repository\\Login\\LoginRepository.cs",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAYwAkAAABSAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T06:32:36.422Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "LoginService.cs",
+              "DocumentMoniker": "D:\\projects\\FarmOps2\\FarmOps\\Repository\\Login\\LoginService.cs",
+              "RelativeDocumentMoniker": "Repository\\Login\\LoginService.cs",
+              "ToolTip": "D:\\projects\\FarmOps2\\FarmOps\\Repository\\Login\\LoginService.cs",
+              "RelativeToolTip": "Repository\\Login\\LoginService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAABpAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T06:31:49.021Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "D:\\projects\\FarmOps2\\FarmOps\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "Controllers\\LoginController.cs",
+              "ToolTip": "D:\\projects\\FarmOps2\\FarmOps\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "Controllers\\LoginController.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAqwFoAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T06:19:09.658Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\projects\\FarmOps2\\FarmOps\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\projects\\FarmOps2\\FarmOps\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGQAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-03T03:11:00.006Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "login.css",
+              "DocumentMoniker": "D:\\projects\\FarmOps2\\FarmOps\\wwwroot\\css\\login.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\login.css",
+              "ToolTip": "D:\\projects\\FarmOps2\\FarmOps\\wwwroot\\css\\login.css",
+              "RelativeToolTip": "wwwroot\\css\\login.css",
+              "ViewState": "AgIAANMAAAAAAAAAAAAuwPcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-05-03T03:06:29.146Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\projects\\FarmOps2\\FarmOps\\Views\\Login\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Login\\Index.cshtml",
+              "ToolTip": "D:\\projects\\FarmOps2\\FarmOps\\Views\\Login\\Index.cshtml",
+              "RelativeToolTip": "Views\\Login\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJIAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-03T03:06:37.242Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\projects\\FarmOps2\\FarmOps\\Views\\Job\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Job\\Index.cshtml",
               "ToolTip": "D:\\projects\\FarmOps2\\FarmOps\\Views\\Job\\Index.cshtml",
               "RelativeToolTip": "Views\\Job\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-04-30T20:37:53.901Z",
               "EditorCaption": ""

@@ -97,3 +97,4 @@ D:\projects\FarmOps2\FarmOps\obj\Debug\net8.0\FarmOps.genruntimeconfig.cache
 D:\projects\FarmOps2\FarmOps\obj\Debug\net8.0\ref\FarmOps.dll
 D:\projects\FarmOps2\FarmOps\bin\Debug\net8.0\Newtonsoft.Json.dll
 D:\projects\FarmOps2\FarmOps\obj\Debug\net8.0\FarmOps.sourcelink.json
+D:\projects\FarmOps2\FarmOps\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

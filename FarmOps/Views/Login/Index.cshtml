@@ -1,29 +1,171 @@
 ﻿
 <link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
-	<div class="container right-panel-active" id="container">
-		<div class="form-container sign-up-container">
-			<form class="form" action="#">
-				<h1 class="h1">Create Account</h1>
-				<div class="social-container">
-					<a href="#" class="social a"><i class="fab fa-facebook-f"></i></a>
-					<a href="#" class="social a"><i class="fab fa-google-plus-g"></i></a>
-					<a href="#" class="social a"><i class="fab fa-linkedin-in"></i></a>
-				</div>
-				<span class="span">or use your email for registration</span>
+	<div class="cont container-fluid right-panel-active" id="container">
+	<div class="form-container sign-up-container">
+		<form class="signupForm" method="post" asp-controller="SignUp" asp-action="Index" enctype="multipart/form-data">
+			<h1 class="h1">Create Account</h1>
 
-			<button class="button" disabled style="cursor:not-allowed">Sign Up</button>
-			</form>
-		</div>
+			<!-- PAGE 1: BASIC DETAILS -->
+			<div id="page1">
+				<div class="row">
+					<div class="col-md-6">
+						<input type="email" name="Email" class="form-style input form-control" placeholder="Email" required />
+					</div>
+					<div class="col-md-6">
+						<input type="password" name="Password" class="form-style input form-control" placeholder="Password" required />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6">
+						<select name="Type" class="form-style input form-control" required>
+							<option value="">-- Select Type --</option>
+							<option value="M">Monitor</option>
+							<option value="S">Supervisor</option>
+							<option value="W">Worker</option>
+							<option value="C">Grower</option>
+						</select>
+					</div>
+					<div class="col-md-6">
+						<input type="text" name="FirstName" class="form-style input form-control" placeholder="First Name" required />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6">
+						<input type="text" name="LastName" class="form-style input form-control" placeholder="Last Name" required />
+					</div>
+					<div class="col-md-6">
+						<input type="text" name="MiddleName" class="form-style input form-control" placeholder="Middle Name" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6">
+						<input type="text" name="Phone" class="form-style input form-control" placeholder="Phone" required />
+					</div>
+					<div class="col-md-6">
+						<input type="date" name="Dob" class="form-style input form-control" required />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col text-end mt-3">
+						<button type="button" class="btn btn-primary" onclick="goToPage(2)">Next &gt;</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- PAGE 2: WORK/BANK DETAILS -->
+			<div id="page2" style="display:none;">
+				<div class="row">
+					<div class="col-md-6">
+						<input type="text" name="PassportNumber" class="form-style input form-control" placeholder="Passport Number" />
+					</div>
+					<div class="col-md-6">
+						<input type="number" name="PayRate" class="form-style input form-control" placeholder="Pay Rate" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6">
+						<input type="text" name="Ird" class="form-style input form-control" placeholder="IRD" />
+					</div>
+					<div class="col-md-6 d-flex align-items-center">
+						<div class="form-check">
+							<input type="checkbox" name="ForkliftCert" class="form-check-input" />
+							<label class="form-check-label">Forklift Certified</label>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6">
+						<input type="text" name="Ir330" class="form-style input form-control" placeholder="IR330" />
+					</div>
+					<div class="col-md-6">
+						<input type="text" name="Licence" class="form-style input form-control" placeholder="Licence" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6 d-flex align-items-center">
+						<div class="form-check">
+							<input type="checkbox" name="WorkAuth" class="form-check-input" />
+							<label class="form-check-label">Work Authorized</label>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<input type="text" name="WorkType" class="form-style input form-control" placeholder="Work Type" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6">
+						<input type="number" name="WorkEvId" class="form-style input form-control" placeholder="Work Event ID" />
+					</div>
+					<div class="col-md-6">
+						<input type="text" name="AccNum" class="form-style input form-control" placeholder="Account Number" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6">
+						<input type="text" name="PayrollId" class="form-style input form-control" placeholder="Payroll ID" />
+					</div>
+					<div class="col-md-6">
+						<input type="text" name="PreEmployment" class="form-style input form-control" placeholder="Pre-Employment Info" />
+					</div>
+				</div>
+
+				<div class="row mt-3">
+					<div class="col-md-6">
+						<button type="button" class="btn btn-secondary" onclick="goToPage(1)">&lt; Back</button>
+					</div>
+					<div class="col-md-6 text-end">
+						<button type="button" class="btn btn-primary" onclick="goToPage(3)">Next &gt;</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- PAGE 3: DOCUMENT UPLOADS -->
+			<div id="page3" style="display:none;">
+				<div class="row">
+					<div class="col-md-6">
+						<label for="Picture">Profile Picture</label>
+						<input type="file" name="Picture" class="form-control" accept="image/*" />
+					</div>
+					<div class="col-md-6">
+						<label for="Document">Document</label>
+						<input type="file" name="Document" class="form-control" accept="image/*" />
+					</div>
+				</div>
+
+				<div class="row mt-2">
+					<div class="col-md-6">
+						<label for="Ir330Document">IR330 Document</label>
+						<input type="file" name="Ir330Document" class="form-control" accept="image/*" />
+					</div>
+					<div class="col-md-6">
+						<label for="SignPic">Signature Picture</label>
+						<input type="file" name="SignPic" class="form-control" accept="image/*" />
+					</div>
+				</div>
+
+				<div class="row mt-3">
+					<div class="col-md-6">
+						<button type="button" class="btn btn-secondary" onclick="goToPage(2)">&lt; Back</button>
+					</div>
+					<div class="col-md-6 text-end">
+						<button type="submit" class="btn btn-success">Sign Up</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
 		<div class="form-container sign-in-container">
-		<form class="form" method="post">
+		<form class="signinForm" method="post">
 				<h1 class="h1">Sign in</h1>
-				<div class="social-container">
-					<a href="#" class="social a"><i class="fab fa-facebook-f"></i></a>
-					<a href="#" class="social a"><i class="fab fa-google-plus-g"></i></a>
-					<a href="#" class="social a"><i class="fab fa-linkedin-in"></i></a>
-				</div>
-			<span class="span">or use your account</span>
-
 			<select id="UserType" name="AccountType" class="form-style input" required>
 					<option value="M">Monitor</option>
 					<option value="S" selected>Supervisor</option>
@@ -65,73 +207,36 @@
 	signInButton.addEventListener('click', () => {
 		container.classList.remove("right-panel-active");
 	});
-</script>
 
-<!--<div class="section login_signup_forms">
-	<div class="container">
-		<div class="row full-height justify-content-center">
-			<div class="col-12 text-center align-self-center py-2">
-				<div class="section pb-5 pt-5 pt-sm-2 text-center">
-					<h6 class="mb-0 pb-3"><span>Log In </span><span>Sign Up</span></h6>
-					<input class="checkbox" type="checkbox" id="reg-log" name="reg-log" />
-					<label for="reg-log"></label> 
-					<div class="card-3d-wrap mx-auto">
-						<div class="card-3d-wrapper">
-							<div class="card-front">
-								<div class="center-wrap">
-									<div class="section text-center">
-										<h4 class="mb-4 pb-3">Log In</h4>
-										<form method="post">
-											<div class="form-group">
-												<select id="UserType" name="AccountType" class="form-style" required>
-													<option value="M">Monitor</option>
-													<option value="S" selected>Supervisor</option>
-													<option value="W">Worker</option>
-													<option value="C">Grower</option>
-												</select>
-												<i class="input-icon fas fa-user"></i>
-											</div>
-											<div class="form-group mt-2">
-												<input type="email" name="Email" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off" required value="johndoe@example.com">
-												<i class="input-icon fas fa-at"></i>
-											</div>
-											<div class="form-group mt-2">
-												<input type="password" name="Password" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off" required value="password123">
-												<i class="input-icon fas fa-lock"></i>
-											</div>
-											<button type="submit" class="btn mt-4">submit</button>
-										</form>
-										<p class="mb-0 mt-4 text-center"><a href="#0" class="link">Forgot your password?</a></p>
-									</div>
-								</div>
-							</div>
-							<div class="card-back">
-								<div class="center-wrap">
-									<div class="section text-center">
-										<h4 class="mb-4 pb-3">Sign Up</h4>
-										<div class="row">
-											<div class="form-group col-4">
-												<input type="text" name="logname" class="form-style" placeholder="Your Full Name" id="logname" autocomplete="off">
-												<i class="input-icon fas fa-user"></i>
-											</div>
-											<div class="form-group col-4 mt-2">
-												<input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off">
-												<i class="input-icon fas fa-at"></i>
-											</div>
-											<div class="form-group mt-2">
-												<input type="password" name="logpass" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off">
-												<i class="input-icon fas fa-lock"></i>
-											</div>
-										</div>
-										<a href="#" class="btn mt-4">submit</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
--->
+	function goToPage(pageNumber) {
+		const currentPage = document.querySelector(`#page${getCurrentPage()}`);
+		const inputs = currentPage.querySelectorAll("input, select");
+		let isValid = true;
+
+		inputs.forEach(input => {
+			if (!input.checkValidity()) {
+				isValid = false;
+				input.classList.add("is-invalid");
+			} else {
+				input.classList.remove("is-invalid");
+			}
+		});
+
+		if (!isValid) return;
+
+		// Hide all pages
+		for (let i = 1; i <= 3; i++) {
+			document.getElementById(`page${i}`).style.display = 'none';
+		}
+		// Show requested page
+		document.getElementById(`page${pageNumber}`).style.display = 'block';
+	}
+
+	function getCurrentPage() {
+		for (let i = 1; i <= 3; i++) {
+			if (document.getElementById(`page${i}`).style.display !== 'none') return i;
+		}
+		return 1;
+	}
+
+</script>

@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
-using FarmOps.Models.LoginModels;   
-
+using FarmOps.Models.LoginModels;
+using FarmOps.Models.Application;
 namespace FarmOps.Controllers
 {
     public class LoginController : Controller
@@ -80,6 +80,32 @@ namespace FarmOps.Controllers
                 ViewBag.Message = "Opps! Something went wrong. Please try again later.";
                 return RedirectToAction("Index", "Home");
             }
+        }
+
+        [HttpPost("SignUp")]
+        public async Task<IActionResult> SignUp(Signup model)
+        {
+            if (!ModelState.IsValid)
+                return View("Index", model);
+
+            var result = await _loginService.SignUp(model);
+
+            if (result.Success)
+            {
+                // Auto-login after signup using same login flow
+                var loginView = new LoginView
+                {
+                    Email = model.Email,
+                    Password = model.Password,
+                    AccountType = model.Type
+                };
+
+                // Reuse login logic (call your login method)
+                return await Index(loginView);
+            }
+
+            ViewBag.Error = result.Error;
+            return View("Index", model);
         }
 
     }

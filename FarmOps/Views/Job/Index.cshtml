@@ -1,81 +1,82 @@
-﻿@model FarmOps.Models.Table.tbl_FJobDetails
+﻿<div class="job-container">
 
-@{
-    ViewData["Title"] = "Create Job";
-}
-
-<div class="container mt-5">
-    <h2 class="mb-4">Create Job - on going work</h2>
+    <h2>Create New Job</h2>
 
     @if (TempData["SuccessMessage"] != null)
     {
-        <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+        <div class="job-alert-success">@TempData["SuccessMessage"]</div>
     }
 
     @if (ViewBag.ErrorMessage != null)
     {
-        <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
+        <div class="job-alert-error">@ViewBag.ErrorMessage</div>
     }
 
-    <form asp-controller="Job" asp-action="Index" method="post" class="needs-validation" novalidate>
+    <div class="job-nav">
+        <a href="@Url.Action("Create", "Job")">Add New Job</a>
+        <a href="@Url.Action("Edit", "Job")">Edit Job</a>
+        <a href="@Url.Action("Index", "Job")">View Jobs</a>
+    </div>
+
+    <form asp-controller="Job" asp-action="Index" method="post">
         @Html.AntiForgeryToken()
 
-        <div class="form-group">
+        <div class="job-form-group">
             <label for="JobId">Job ID</label>
-            <input type="text" class="form-control" id="JobId" name="JobId" value="@Model.JobId" />
+            <input type="text" id="JobId" name="JobId" value="@Model.JobId" />
         </div>
 
-        <div class="form-group">
+        <div class="job-form-group">
             <label for="JobName">Job Name</label>
-            <input type="text" class="form-control" id="JobName" name="JobName" value="@Model.JobName" />
+            <input type="text" id="JobName" name="JobName" value="@Model.JobName" />
         </div>
 
-        <div class="form-group">
+        <div class="job-form-group">
             <label for="JobCat">Job Category</label>
-            <input type="number" class="form-control" id="JobCat" name="JobCat" value="@Model.JobCat" required />
+            <input type="number" id="JobCat" name="JobCat" value="@Model.JobCat" required />
         </div>
 
-        <div class="form-group">
+        <div class="job-form-group">
             <label for="GrowerId">Grower ID</label>
-            <input type="number" class="form-control" id="GrowerId" name="GrowerId" value="@Model.GrowerId" required />
+            <input type="number" id="GrowerId" name="GrowerId" value="@Model.GrowerId" required />
         </div>
 
-        <div class="form-group">
+        <div class="job-form-group">
             <label for="JobTitle">Job Title</label>
-            <input type="text" class="form-control" id="JobTitle" name="JobTitle" value="@Model.JobTitle" required />
+            <input type="text" id="JobTitle" name="JobTitle" value="@Model.JobTitle" required />
         </div>
 
-        <div class="form-group">
+        <div class="job-form-group">
             <label for="JobDescription">Job Description</label>
-            <textarea class="form-control" id="JobDescription" name="JobDescription" rows="3">@Model.JobDescription</textarea>
+            <textarea id="JobDescription" name="JobDescription">@Model.JobDescription</textarea>
         </div>
 
-        <div class="form-group">
+        <div class="job-form-group">
             <label for="JobPostedDate">Job Posted Date</label>
-            <input type="date" class="form-control" id="JobPostedDate" name="JobPostedDate"
+            <input type="date" id="JobPostedDate" name="JobPostedDate"
                    value="@(Model.JobPostedDate?.ToString("yyyy-MM-dd"))" />
         </div>
 
-        <div class="form-group">
+        <div class="job-form-group">
             <label for="JobStatus">Job Status</label>
-            <input type="text" class="form-control" id="JobStatus" name="JobStatus" value="@Model.JobStatus" />
+            <input type="text" id="JobStatus" name="JobStatus" value="@Model.JobStatus" />
         </div>
 
-        <div class="form-group">
+        <div class="job-form-group">
             <label for="JobPay">Job Pay</label>
-            <input type="number" class="form-control" id="JobPay" name="JobPay" value="@Model.JobPay" required />
+            <input type="number" id="JobPay" name="JobPay" value="@Model.JobPay" required />
         </div>
 
-        <div class="form-group">
-            <label for="JobDuration">Job Duration (in days)</label>
-            <input type="number" class="form-control" id="JobDuration" name="JobDuration" value="@Model.JobDuration" required />
+        <div class="job-form-group">
+            <label for="JobDuration">Job Duration (days)</label>
+            <input type="number" id="JobDuration" name="JobDuration" value="@Model.JobDuration" required />
         </div>
 
-        <div class="form-group">
+        <div class="job-form-group">
             <label for="NumWorkers">Number of Workers</label>
-            <input type="number" class="form-control" id="NumWorkers" name="NumWorkers" value="@Model.NumWorkers" required />
+            <input type="number" id="NumWorkers" name="NumWorkers" value="@Model.NumWorkers" required />
         </div>
 
-        <button type="submit" class="btn btn-primary mt-3">Create Job</button>
+        <button type="submit" class="job-submit-btn">Create Job</button>
     </form>
 </div>
