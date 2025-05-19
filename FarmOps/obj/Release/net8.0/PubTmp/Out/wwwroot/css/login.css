@@ -82,15 +82,25 @@ body {
         border-color: #FFFFFF;
     }
 
-.form {
+.signinForm {
     background-color: #FFFFFF;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 0 50px;
     height: 100%;
     text-align: center;
+    overflow:auto;
+}
+.signupForm {
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    text-align: center;
+    overflow: auto;
 }
 
 .input {
@@ -98,18 +108,18 @@ body {
     border: none;
     padding: 12px 15px;
     margin: 8px 0;
-    width: 100%;
+    max-width: 300px;
+    width:100%;
 }
 
-.container {
+.cont {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     position: relative;
     overflow: hidden;
-    width: 768px;
     max-width: 100%;
-    min-height: 480px;
+    height: 100%;
 }
 
 .form-container {
@@ -125,7 +135,7 @@ body {
     z-index: 2;
 }
 
-.container.right-panel-active .sign-in-container {
+.cont.right-panel-active .sign-in-container {
     transform: translateX(100%);
 }
 
@@ -136,7 +146,7 @@ body {
     z-index: 1;
 }
 
-.container.right-panel-active .sign-up-container {
+.cont.right-panel-active .sign-up-container {
     transform: translateX(100%);
     opacity: 1;
     z-index: 5;
@@ -166,7 +176,7 @@ body {
     z-index: 100;
 }
 
-.container.right-panel-active .overlay-container {
+.cont.right-panel-active .overlay-container {
     transform: translateX(-100%);
 }
 
@@ -186,7 +196,7 @@ body {
     transition: transform 0.6s ease-in-out;
 }
 
-.container.right-panel-active .overlay {
+.cont.right-panel-active .overlay {
     transform: translateX(50%);
 }
 
@@ -209,7 +219,7 @@ body {
     transform: translateX(-20%);
 }
 
-.container.right-panel-active .overlay-left {
+.cont.right-panel-active .overlay-left {
     transform: translateX(0);
 }
 
@@ -218,7 +228,7 @@ body {
     transform: translateX(0);
 }
 
-.container.right-panel-active .overlay-right {
+.cont.right-panel-active .overlay-right {
     transform: translateX(20%);
 }
 

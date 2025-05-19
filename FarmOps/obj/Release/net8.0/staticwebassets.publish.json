@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "1DZR00rU7uhTXF/Ts4FxOqALCO0AvR2LIoNYqrPmJtk=",
+  "Hash": "JDHUz0SW9ccLSuGsfcXgk9XHfxx45ti+8C5ctHVn7iE=",
   "Source": "FarmOps",
   "BasePath": "_content/FarmOps",
   "Mode": "Default",
@@ -94,8 +94,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "xagm46l3ay",
-      "Integrity": "CWi/VpsW3UpEopO7ngHlFTiaGWMWXmvLioO62MxTc7M=",
+      "Fingerprint": "afr6p7eqvn",
+      "Integrity": "VmXgmNvI4HAArDQNacNweK78nG1oWybG1oxiZFGK8oA=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\login.css"
@@ -115,8 +115,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "8j37zv49xg",
-      "Integrity": "pGwtuqLl74BqRWGDibOFwu3otKVroaoaw+9MkSLflTM=",
+      "Fingerprint": "y6vaguq60a",
+      "Integrity": "ltuJgA2iz3G/WAJ3S/PbWnmQZ95Uzj/gMqjtfrOTjdE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
@@ -2516,6 +2516,51 @@
       ]
     },
     {
+      "Route": "css/login.afr6p7eqvn.css",
+      "AssetFile": "D:\\projects\\FarmOps2\\FarmOps\\wwwroot\\css\\login.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4858"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"VmXgmNvI4HAArDQNacNweK78nG1oWybG1oxiZFGK8oA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 03 May 2025 07:03:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "afr6p7eqvn"
+        },
+        {
+          "Name": "label",
+          "Value": "css/login.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-VmXgmNvI4HAArDQNacNweK78nG1oWybG1oxiZFGK8oA="
+        }
+      ]
+    },
+    {
       "Route": "css/login.css",
       "AssetFile": "D:\\projects\\FarmOps2\\FarmOps\\wwwroot\\css\\login.css",
       "Selectors": [],
@@ -2526,7 +2571,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4671"
+          "Value": "4858"
         },
         {
           "Name": "Content-Type",
@@ -2534,11 +2579,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"CWi/VpsW3UpEopO7ngHlFTiaGWMWXmvLioO62MxTc7M=\""
+          "Value": "\"VmXgmNvI4HAArDQNacNweK78nG1oWybG1oxiZFGK8oA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Apr 2025 17:42:22 GMT"
+          "Value": "Sat, 03 May 2025 07:03:45 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2548,97 +2593,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-CWi/VpsW3UpEopO7ngHlFTiaGWMWXmvLioO62MxTc7M="
-        }
-      ]
-    },
-    {
-      "Route": "css/login.xagm46l3ay.css",
-      "AssetFile": "D:\\projects\\FarmOps2\\FarmOps\\wwwroot\\css\\login.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "4671"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"CWi/VpsW3UpEopO7ngHlFTiaGWMWXmvLioO62MxTc7M=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 29 Apr 2025 17:42:22 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "xagm46l3ay"
-        },
-        {
-          "Name": "label",
-          "Value": "css/login.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-CWi/VpsW3UpEopO7ngHlFTiaGWMWXmvLioO62MxTc7M="
-        }
-      ]
-    },
-    {
-      "Route": "css/site.8j37zv49xg.css",
-      "AssetFile": "D:\\projects\\FarmOps2\\FarmOps\\wwwroot\\css\\site.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "4674"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"pGwtuqLl74BqRWGDibOFwu3otKVroaoaw+9MkSLflTM=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 30 Apr 2025 19:08:49 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "8j37zv49xg"
-        },
-        {
-          "Name": "label",
-          "Value": "css/site.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-pGwtuqLl74BqRWGDibOFwu3otKVroaoaw+9MkSLflTM="
+          "Value": "sha256-VmXgmNvI4HAArDQNacNweK78nG1oWybG1oxiZFGK8oA="
         }
       ]
     },
@@ -2653,7 +2608,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4674"
+          "Value": "7204"
         },
         {
           "Name": "Content-Type",
@@ -2661,11 +2616,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"pGwtuqLl74BqRWGDibOFwu3otKVroaoaw+9MkSLflTM=\""
+          "Value": "\"ltuJgA2iz3G/WAJ3S/PbWnmQZ95Uzj/gMqjtfrOTjdE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 30 Apr 2025 19:08:49 GMT"
+          "Value": "Mon, 05 May 2025 03:52:49 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2675,7 +2630,52 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-pGwtuqLl74BqRWGDibOFwu3otKVroaoaw+9MkSLflTM="
+          "Value": "sha256-ltuJgA2iz3G/WAJ3S/PbWnmQZ95Uzj/gMqjtfrOTjdE="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.y6vaguq60a.css",
+      "AssetFile": "D:\\projects\\FarmOps2\\FarmOps\\wwwroot\\css\\site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7204"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ltuJgA2iz3G/WAJ3S/PbWnmQZ95Uzj/gMqjtfrOTjdE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 03:52:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "y6vaguq60a"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ltuJgA2iz3G/WAJ3S/PbWnmQZ95Uzj/gMqjtfrOTjdE="
         }
       ]
     },

@@ -66,8 +66,7 @@
               "RelativeToolTip": "wwwroot\\css\\site.css",
               "ViewState": "AgIAAAABAAAAAAAAAAAuwCQBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-05-05T03:52:42.787Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-05T03:52:42.787Z"
             },
             {
               "$type": "Document",
@@ -161,7 +160,7 @@
               "RelativeDocumentMoniker": "Views\\Login\\Index.cshtml",
               "ToolTip": "D:\\projects\\FarmOps2\\FarmOps\\Views\\Login\\Index.cshtml",
               "RelativeToolTip": "Views\\Login\\Index.cshtml",
-              "ViewState": "AgIAADkAAAAAAAAAAAAAAJIAAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAAHAAAAAAAAAAAAAAwJIAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-05-03T03:06:37.242Z",
               "EditorCaption": ""

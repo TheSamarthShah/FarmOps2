@@ -173,3 +173,120 @@ body {
     background-color: red !important;
     color: white; /* Optional, to make text more readable */
 }
+
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700');
+
+:root {
+    --main-orange: #fea680;
+    --main-blue: #01abaa;
+    --main-black: #000;
+    --main-white: #fff;
+    --highlight-yellow: #ffeba7;
+    --deep-blue: #102770;
+}
+
+.job-container {
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 2rem 3rem;
+    background: var(--main-white);
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    font-family: 'Poppins', sans-serif;
+}
+
+    .job-container h2 {
+        font-weight: 600;
+        color: var(--deep-blue);
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
+.job-form-group {
+    margin-bottom: 1.2rem;
+}
+
+    .job-form-group label {
+        display: block;
+        font-weight: 500;
+        margin-bottom: 0.4rem;
+        color: #444;
+    }
+
+    .job-form-group input,
+    .job-form-group textarea {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 14px;
+        transition: border-color 0.2s ease;
+        background: #f9f9f9;
+    }
+
+        .job-form-group input:focus,
+        .job-form-group textarea:focus {
+            outline: none;
+            border-color: var(--main-blue);
+            background: #fff;
+        }
+
+.job-submit-btn {
+    background-color: var(--main-orange);
+    border: none;
+    color: var(--main-white);
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    border-radius: 30px;
+    transition: background-color 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+    margin-top: 1rem;
+}
+
+    .job-submit-btn:hover {
+        background-color: #fd7e4c;
+    }
+
+.job-alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+
+.job-alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+
+.job-nav {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+    .job-nav a {
+        display: inline-block;
+        margin: 0 1rem;
+        color: var(--main-blue);
+        font-weight: 500;
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+
+        .job-nav a:hover {
+            color: var(--main-orange);
+        }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .job-container {
+        padding: 1.5rem;
+    }
+}
